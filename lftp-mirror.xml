@@ -1,68 +1,112 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Container>
+<?xml version="1.0"?>
+<Container version="2">
   <Name>lftp-mirror</Name>
-  <Support>https://hub.docker.com/r/moosedookie/lftp-mirror/</Support>
-  <Description>Mirrors and removes files from a remote lftp folder to a local folder.</Description>
-  <Overview>Mirrors and removes files from a remote lftp folder to a local folder.</Overview>
-  <Registry>https://hub.docker.com/r/moosedookie/lftp-mirror/</Registry>
   <Repository>moosedookie/lftp-mirror</Repository>
-  <BindTime>true</BindTime>
+  <Registry>https://hub.docker.com/r/moosedookie/lftp-mirror/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Environment>
-    <Variable>
-      <Name>HOST</Name>
-      <Value></Value>
-    </Variable>
-    <Variable>
-      <Name>PORT</Name>
-      <Value>22</Value>
-    </Variable>
-    <Variable>
-      <Name>USERNAME</Name>
-      <Value></Value>
-    </Variable>
-    <Variable>
-      <Name>PASSWORD</Name>
-      <Value></Value>
-    </Variable>
-    <Variable>
-      <Name>REMOTE_DIR</Name>
-      <Value></Value>
-    </Variable>
-    <Variable>
-      <Name>TEMP_DIR</Name>
-      <Value></Value>
-    </Variable>
-    <Variable>
-      <Name>FINISHED_DIR</Name>
-      <Value></Value>
-    </Variable>
-    <Variable>
-      <Name>LFTP_PARTS</Name>
-      <Value>5</Value>
-    </Variable>
-    <Variable>
-      <Name>LFTP_FILES</Name>
-      <Value>5</Value>
-    </Variable>
-    <Variable>
-      <Name>PUID</Name>
-      <Value>99</Value>
-    </Variable>
-    <Variable>
-      <Name>PGID</Name>
-      <Value>100</Value>
-    </Variable>
-  </Environment>
+  <Support>https://hub.docker.com/r/moosedookie/lftp-mirror/</Support>
+  <Project>https://github.com/moosedookie/lftp-mirror</Project>
+  <Overview>Mirrors and removes files from a remote lftp folder to a local folder.</Overview>
+  <Category>Downloaders: Tools: Network:FTP</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/moosedookie/docker-templates/master/lftp-mirror.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/moosedookie/docker-templates/master/img/lftp1.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Description>Mirrors and removes files from a remote lftp folder to a local folder.</Description>
   <Networking>
     <Mode>bridge</Mode>
+    <Publish/>
   </Networking>
   <Data>
     <Volume>
       <HostDir></HostDir>
-      <ContainerDir>/config</ContainerDir>
+      <ContainerDir>/TEMP</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/DOWNLOADS</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
-  <Icon>https://raw.githubusercontent.com/moosedookie/docker-templates/master/img/lftp1.png</Icon>
+  <Environment>
+    <Variable>
+      <Value></Value>
+      <Name>HOST</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>22</Value>
+      <Name>PORT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value></Value>
+      <Name>USERNAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value></Value>
+      <Name>PASSWORD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value></Value>
+      <Name>REMOTE_DIR</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>12</Value>
+      <Name>LFTP_PARTS</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>6</Value>
+      <Name>LFTP_FILES</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>/TEMP</Value>
+      <Name>TEMP_DIR</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value></Value>
+      <Name>FINISHED_DIR</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>000</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>000</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="IP/Host" Target="HOST" Default="" Mode="" Description="Container Variable: HOST" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Host Port" Target="PORT" Default="22" Mode="" Description="Container Variable: PORT" Type="Variable" Display="always" Required="true" Mask="false">22</Config>
+  <Config Name="Host User" Target="USERNAME" Default="" Mode="" Description="Container Variable: USERNAME" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Host Password" Target="PASSWORD" Default="" Mode="" Description="Container Variable: PASSWORD" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Host/Remote Directory" Target="REMOTE_DIR" Default="" Mode="" Description="Container Variable: REMOTE_DIR" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Split Parts Per File" Target="LFTP_PARTS" Default="12" Mode="" Description="Container Variable: LFTP_PARTS" Type="Variable" Display="always" Required="true" Mask="false">12</Config>
+  <Config Name="Parallel Downloads" Target="LFTP_FILES" Default="6" Mode="" Description="Container Variable: LFTP_FILES" Type="Variable" Display="always" Required="true" Mask="false">6</Config>
+
+  <Config Name="Path to TEMP_DIR on local machine" Target="/TEMP" Default="" Mode="rw" Description="Container Path: /TEMP" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Path to FINISHED_DIR on local machine" Target="/DOWNLOADS" Default="" Mode="rw" Description="Container Path: /DOWNLOADS" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Temp Download Directory" Target="TEMP_DIR" Default="/TEMP" Mode="" Description="Container Variable: TEMP_DIR" Type="Variable" Display="advanced" Required="true" Mask="false">/TEMP</Config>
+  <Config Name="Finished Download Directory" Target="FINISHED_DIR" Default="" Mode="" Description="Container Variable: FINISHED_DIR" Type="Variable" Display="advanced" Required="true" Mask="false">/DOWNLOADS</Config>
+  <Config Name="PUID" Target="PUID" Default="000" Mode="" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false">000</Config>
+  <Config Name="PGID" Target="PGID" Default="000" Mode="" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false">000</Config>
 </Container>

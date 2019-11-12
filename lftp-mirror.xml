@@ -56,5 +56,5 @@
       <Mode>rw</Mode>
     </Volume>
   </Data>
-  <Icon>/plugins/dynamix.docker.manager/images/question.png</Icon>
+  <Icon>https://raw.githubusercontent.com/moosedookie/docker-templates/master/img/lftp1.png</Icon>
 </Container>

@@ -30,6 +30,10 @@
       <Value></Value>
     </Variable>
     <Variable>
+      <Name>FINISHED_DIR</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
       <Name>LFTP_PARTS</Name>
       <Value>5</Value>
     </Variable>

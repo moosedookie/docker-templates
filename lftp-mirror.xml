@@ -30,6 +30,10 @@
       <Value></Value>
     </Variable>
     <Variable>
+      <Name>TEMP_DIR</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
       <Name>FINISHED_DIR</Name>
       <Value></Value>
     </Variable>

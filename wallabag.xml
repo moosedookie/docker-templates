@@ -17,7 +17,7 @@
   <Category>Productivity: Tools:</Category>
   <WebUI>http://[IP]:[PORT:5563]/</WebUI>
   <TemplateURL/>
-  <Icon>https://i.imgur.com/WczvTjH.png</Icon>
+  <Icon>https://raw.githubusercontent.com/moosedookie/docker-templates/master/img/wallabag.png</Icon>
   <ExtraParams>-e SYMFONY__ENV__DOMAIN_NAME=https://wallabag.moosedookie.me</ExtraParams>
   <PostArgs/>
   <CPUset/>

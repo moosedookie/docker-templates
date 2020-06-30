@@ -16,12 +16,12 @@
     Initial username and password are [b]wallabag[/b]</Overview>
   <Category>Productivity: Tools:</Category>
   <WebUI>http://[IP]:[PORT:5563]/</WebUI>
-  <TemplateURL/>
-  <Icon>https://raw.githubusercontent.com/moosedookie/docker-templates/master/img/wallabag.png</Icon>
-  <ExtraParams>-e SYMFONY__ENV__DOMAIN_NAME=https://wallabag.moosedookie.me</ExtraParams>
+  <TemplateURL>https://raw.githubusercontent.com/A75G/docker-templates/master/templates/wallabag.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/moosedookie/docker-templates/master/img/wallabag-white.png</Icon>
+  <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1569687590</DateInstalled>
+  <DateInstalled>1593541006</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Description>    [h3]wallabag[/h3]wallabag is a self hostable application for saving web pages. Click, save, read it when you want. It saves the content you select so that you can read it when you have time.[br][br]&#xD;
@@ -41,13 +41,13 @@
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/cache/appdata/wallabag/data</HostDir>
-      <ContainerDir>/var/www/wallabag/data</ContainerDir>
+      <HostDir>/mnt/cache/appdata/wallabag/images</HostDir>
+      <ContainerDir>/var/www/wallabag/web/assets/images</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
       <HostDir>/mnt/cache/appdata/wallabag/data</HostDir>
-      <ContainerDir>/var/www/wallabag/web/assets/images</ContainerDir>
+      <ContainerDir>/var/www/wallabag/data</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
@@ -62,11 +62,83 @@
       <Name>PGID</Name>
       <Mode/>
     </Variable>
+    <Variable>
+      <Value></Value>
+      <Name>SYMFONY__ENV__DOMAIN_NAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value></Value>
+      <Name>MYSQL_ROOT_PASSWORD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>pdo_mysql</Value>
+      <Name>SYMFONY__ENV__DATABASE_DRIVER</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>null</Value>
+      <Name>SYMFONY__ENV__DATABASE_DRIVER_CLASS</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value></Value>
+      <Name>SYMFONY__ENV__DATABASE_HOST</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>3306</Value>
+      <Name>SYMFONY__ENV__DATABASE_PORT</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>wallabagDB</Value>
+      <Name>SYMFONY__ENV__DATABASE_NAME</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>wallabag</Value>
+      <Name>SYMFONY__ENV__DATABASE_USER</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value></Value>
+      <Name>SYMFONY__ENV__DATABASE_PASSWORD</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>null</Value>
+      <Name>SYMFONY__ENV__DATABASE_PATH</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>utf8mb4</Value>
+      <Name>SYMFONY__ENV__DATABASE_CHARSET</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value></Value>
+      <Name>SYMFONY__ENV__SECRET</Name>
+      <Mode/>
+    </Variable>
   </Environment>
   <Labels/>
   <Config Name="Host Port 1" Target="80" Default="" Mode="tcp" Description="Container Port: 80" Type="Port" Display="always" Required="false" Mask="false">5563</Config>
-  <Config Name="Host Path 1" Target="/var/www/wallabag/data" Default="" Mode="rw" Description="Container Path: /var/www/wallabag/data" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/wallabag/data</Config>
-  <Config Name="Host Path 2" Target="/var/www/wallabag/web/assets/images" Default="" Mode="rw" Description="Container Path: /var/www/wallabag/web/assets/images" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/wallabag/data</Config>
+  <Config Name="Host Path 2" Target="/var/www/wallabag/web/assets/images" Default="" Mode="rw" Description="Container Path: /var/www/wallabag/web/assets/images" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/wallabag/images</Config>
   <Config Name="Host Key 1" Target="PUID" Default="" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">99</Config>
   <Config Name="Host Key 2" Target="PGID" Default="" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
+  <Config Name="Host Key 3" Target="SYMFONY__ENV__DOMAIN_NAME" Default="" Mode="" Description="Container Variable: SYMFONY__ENV__DOMAIN_NAME" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Host Path 2" Target="/var/www/wallabag/data" Default="" Mode="rw" Description="Container Path: /var/www/wallabag/data" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/wallabag/data</Config>
+  <Config Name="Host Key 4" Target="MYSQL_ROOT_PASSWORD" Default="" Mode="" Description="Container Variable: MYSQL_ROOT_PASSWORD" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Host Key 5" Target="SYMFONY__ENV__DATABASE_DRIVER" Default="" Mode="" Description="Container Variable: SYMFONY__ENV__DATABASE_DRIVER" Type="Variable" Display="always" Required="false" Mask="false">pdo_mysql</Config>
+  <Config Name="Host Key 6" Target="SYMFONY__ENV__DATABASE_DRIVER_CLASS" Default="" Mode="" Description="Container Variable: SYMFONY__ENV__DATABASE_DRIVER_CLASS" Type="Variable" Display="always" Required="false" Mask="false">null</Config>
+  <Config Name="Host Key 7" Target="SYMFONY__ENV__DATABASE_HOST" Default="" Mode="" Description="Container Variable: SYMFONY__ENV__DATABASE_HOST" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Host Key 8" Target="SYMFONY__ENV__DATABASE_PORT" Default="" Mode="" Description="Container Variable: SYMFONY__ENV__DATABASE_PORT" Type="Variable" Display="always" Required="false" Mask="false">3306</Config>
+  <Config Name="Host Key 9" Target="SYMFONY__ENV__DATABASE_NAME" Default="" Mode="" Description="Container Variable: SYMFONY__ENV__DATABASE_NAME" Type="Variable" Display="always" Required="false" Mask="false">wallabagDB</Config>
+  <Config Name="Host Key 12" Target="SYMFONY__ENV__DATABASE_USER" Default="" Mode="" Description="Container Variable: SYMFONY__ENV__DATABASE_USER" Type="Variable" Display="always" Required="false" Mask="false">wallabag</Config>
+  <Config Name="Host Key 10" Target="SYMFONY__ENV__DATABASE_PASSWORD" Default="" Mode="" Description="Container Variable: SYMFONY__ENV__DATABASE_PASSWORD" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Host Key 11" Target="SYMFONY__ENV__DATABASE_PATH" Default="" Mode="" Description="Container Variable: SYMFONY__ENV__DATABASE_PATH" Type="Variable" Display="always" Required="false" Mask="false">null</Config>
+  <Config Name="Host Key 13" Target="SYMFONY__ENV__DATABASE_CHARSET" Default="" Mode="" Description="Container Variable: SYMFONY__ENV__DATABASE_CHARSET" Type="Variable" Display="always" Required="false" Mask="false">utf8mb4</Config>
+  <Config Name="Host Key 14" Target="SYMFONY__ENV__SECRET" Default="" Mode="" Description="Container Variable: SYMFONY__ENV__SECRET" Type="Variable" Display="always" Required="false" Mask="false"></Config>
 </Container>

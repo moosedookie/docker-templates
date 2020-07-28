@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>xbvr</Name>
+  <Repository>xbapps/xbvr:0.3.0-beta.30</Repository>
+  <Registry>https://hub.docker.com/r/xbapps/xbvr/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/xbapps/xbvr/</Support>
+  <Project>https://github.com/xbapps/xbvr</Project>
+  <Overview>The ultimate tool for managing your VR porn library.</Overview>
+  <Category>MediaServer:Video MediaServer:Photos</Category>
+  <WebUI>http://[IP]:[PORT:9999]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/moosedookie/docker-templates/master/xbvr.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/moosedookie/docker-templates/master/img/xbvr.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled></DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>The ultimate tool for managing your VR porn library.</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>9999</HostPort>
+        <ContainerPort>9999</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/videos</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/cache/appdata/xbvr/</HostDir>
+      <ContainerDir>/root/.config/xbvr/</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>99</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Host Port 1" Target="9999" Default="" Mode="tcp" Description="Container Port: 9999" Type="Port" Display="always" Required="false" Mask="false">9999</Config>
+  <Config Name="Host Path 1" Target="/videos" Default="" Mode="rw" Description="Container Path: /videos" Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Host Path 2" Target="/root/.config/xbvr/" Default="" Mode="rw" Description="Container Path: /root/.config/xbvr/" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/xbvr/</Config>
+  <Config Name="Host Key 1" Target="PUID" Default="" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">99</Config>
+  <Config Name="Host Key 2" Target="PGID" Default="" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
+</Container>

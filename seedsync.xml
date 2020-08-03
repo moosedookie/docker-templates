@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>seedsync</Name>
+  <Repository>ipsingh06/seedsync</Repository>
+  <Registry>https://hub.docker.com/r/ipsingh06/seedsync/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/ipsingh06/seedsync/</Support>
+  <Project>https://github.com/ipsingh06/seedsync/</Project>
+  <Overview>&amp;lt;h3&amp;gt;SeedSync is a tool to sync the files on a remote Linux server (like your seedbox, for example). It uses LFTP to transfer files fast!&amp;lt;/h3&amp;gt;&#xD;
+&#xD;
+&amp;lt;h3&amp;gt;Features&amp;lt;/h3&amp;gt;&#xD;
+&amp;lt;ul&amp;gt;&#xD;
+&amp;lt;li&amp;gt;Built on top of LFTP, the fastest file transfer program ever&amp;lt;/li&amp;gt;&#xD;
+&amp;lt;li&amp;gt;Web UI - track and control your transfers from anywhere&amp;lt;/li&amp;gt;&#xD;
+&amp;lt;li&amp;gt;Automatically extract your files after sync&amp;lt;/li&amp;gt;&#xD;
+&amp;lt;li&amp;gt;Auto-Queue - only sync the files you want based on pattern matching&amp;lt;/li&amp;gt;&#xD;
+&amp;lt;li&amp;gt;Delete local and remote files easily&amp;lt;/li&amp;gt;&#xD;
+&amp;lt;li&amp;gt;Fully open source!&amp;lt;/li&amp;gt;&#xD;
+&amp;lt;/ul&amp;gt;</Overview>
+  <Category>Downloaders: Tools:</Category>
+  <WebUI>http://[IP]:[PORT:8800]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/moosedookie/docker-templates/master/seedsync.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/moosedookie/docker-templates/master/img/seedsync.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1596467657</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>&amp;lt;h3&amp;gt;SeedSync is a tool to sync the files on a remote Linux server (like your seedbox, for example). It uses LFTP to transfer files fast!&amp;lt;/h3&amp;gt;&#xD;
+&#xD;
+&amp;lt;h3&amp;gt;Features&amp;lt;/h3&amp;gt;&#xD;
+&amp;lt;ul&amp;gt;&#xD;
+&amp;lt;li&amp;gt;Built on top of LFTP, the fastest file transfer program ever&amp;lt;/li&amp;gt;&#xD;
+&amp;lt;li&amp;gt;Web UI - track and control your transfers from anywhere&amp;lt;/li&amp;gt;&#xD;
+&amp;lt;li&amp;gt;Automatically extract your files after sync&amp;lt;/li&amp;gt;&#xD;
+&amp;lt;li&amp;gt;Auto-Queue - only sync the files you want based on pattern matching&amp;lt;/li&amp;gt;&#xD;
+&amp;lt;li&amp;gt;Delete local and remote files easily&amp;lt;/li&amp;gt;&#xD;
+&amp;lt;li&amp;gt;Fully open source!&amp;lt;/li&amp;gt;&#xD;
+&amp;lt;/ul&amp;gt;</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8800</HostPort>
+        <ContainerPort>8800</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir></HostDir>
+      <ContainerDir>/downloads</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/cache/appdata/seedsync</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>99</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>100</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Host Port 1" Target="8800" Default="" Mode="tcp" Description="Container Port: 8800" Type="Port" Display="always" Required="false" Mask="false">8800</Config>
+  <Config Name="downloads" Target="/downloads" Default="" Mode="rw" Description="Container Path: /downloads" Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="appdata" Target="/config" Default="/mnt/cache/appdata/seedsync" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/seedsync</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">100</Config>
+</Container>

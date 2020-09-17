@@ -12,7 +12,7 @@
   <Overview>Madsonic 7.0 Beta Alpine Docker Image
 Madsonic is a web-based media streamer and jukebox Server. Based on Java technology, Madsonic runs on most platforms, including Windows, Mac, Linux, OSX, and Unix variants.</Overview>
   <Category>MediaServer:Music</Category>
-  <WebUI>http://[IP]:[PORT:4040]/</WebUI>
+  <WebUI>https://[IP]:[PORT:4050]/</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/moosedookie/docker-templates/master/madsonicv7.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/moosedookie/docker-templates/master/img/madsonicv7.png</Icon>
   <ExtraParams/>

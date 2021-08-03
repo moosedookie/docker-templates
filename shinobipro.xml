@@ -48,7 +48,8 @@ To use your Nvidia GPU for encoding&#xD;
 2. Set the repository tag to :nvidia&#xD;
 3. Under Extra Parameters:  add   --runtime=nvidia&#xD;
 4. Set  template field   Nvidia build only -- Driver capabilities:     to  all&#xD;
-5. Set  template field   Nvidia build only -- GPU ID:                       to your GPU id from the nvida unraid plugin&#xD;</Overview>
+5. Set  template field   Nvidia build only -- GPU ID:                       to your GPU id from the nvida unraid plugin&#xD;
+</Overview>
   <Category>HomeAutomation: MediaApp:Video MediaServer:Video</Category>
   <WebUI>http://[IP]:[PORT:8080]</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/moosedookie/docker-templates/master/shinobipro.xml</TemplateURL>
@@ -56,7 +57,7 @@ To use your Nvidia GPU for encoding&#xD;
   <ExtraParams>--runtime=nvidia</ExtraParams>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled/>
+  <DateInstalled>1627953791</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Description>Shinobi is the Open Source CCTV Solution written in Node.JS. Designed with multiple account system, Streams by WebSocket, and Save to WebM. Shinobi can record IP Cameras and Local Cameras.&#xD;
@@ -98,7 +99,8 @@ To use your Nvidia GPU for encoding&#xD;
 2. Set the repository tag to :nvidia&#xD;
 3. Under Extra Parameters:  add   --runtime=nvidia&#xD;
 4. Set  template field   Nvidia build only -- Driver capabilities:     to  all&#xD;
-5. Set  template field   Nvidia build only -- GPU ID:                       to your GPU id from the nvida unraid plugin&#xD;</Description>
+5. Set  template field   Nvidia build only -- GPU ID:                       to your GPU id from the nvida unraid plugin&#xD;
+</Description>
   <Networking>
     <Mode>bridge</Mode>
     <Publish>
@@ -111,19 +113,14 @@ To use your Nvidia GPU for encoding&#xD;
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/cache/appdata/shinobipro/cctv/</HostDir>
-      <ContainerDir>/opt/shinobi/videos</ContainerDir>
-      <Mode>rw,slave</Mode>
-    </Volume>
-    <Volume>
-      <HostDir>/dev/shm/shinobi</HostDir>
-      <ContainerDir>/dev/shm/streams</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-    <Volume>
       <HostDir>/mnt/cache/appdata/shinobipro</HostDir>
       <ContainerDir>/config</ContainerDir>
       <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/cache/appdata/shinobipro/cctv/</HostDir>
+      <ContainerDir>/opt/shinobi/videos</ContainerDir>
+      <Mode>rw,slave</Mode>
     </Volume>
     <Volume>
       <HostDir>/mnt/cache/appdata/shinobipro/database</HostDir>
@@ -133,6 +130,11 @@ To use your Nvidia GPU for encoding&#xD;
     <Volume>
       <HostDir>/mnt/cache/appdata/shinobipro/customautoload</HostDir>
       <ContainerDir>/opt/shinobi/libs/customAutoLoad</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/dev/shm/shinobi</HostDir>
+      <ContainerDir>/dev/shm/streams</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
@@ -207,9 +209,12 @@ To use your Nvidia GPU for encoding&#xD;
   <Config Name="Web port" Target="8080" Default="" Mode="tcp" Description="Container Port: 8080" Type="Port" Display="always" Required="false" Mask="false">3696</Config>
   <Config Name="username for superuser" Target="ADMIN_USER" Default="" Mode="" Description="Container Variable: ADMIN_USER" Type="Variable" Display="always" Required="false" Mask="false"></Config>
   <Config Name="password for superuser" Target="ADMIN_PASSWORD" Default="" Mode="" Description="Container Variable: ADMIN_PASSWORD" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="appdata location" Target="/config" Default="/mnt/cache/appdata/shinobipro" Mode="rw" Description="/config" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/shinobipro</Config>
   <Config Name="video storage location" Target="/opt/shinobi/videos" Default="" Mode="rw,slave" Description="/opt/shinobi/videos" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/shinobipro/cctv/</Config>
+  <Config Name="maria db database location" Target="/var/lib/mysql" Default="" Mode="rw" Description="/var/lib/mysql" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/shinobipro/database</Config>
+  <Config Name="customautoload modules" Target="/opt/shinobi/libs/customAutoLoad" Default="" Mode="rw" Description="Container Path: /opt/shinobi/libs/customAutoLoad" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/shinobipro/customautoload</Config>
   <Config Name="****Nvidia build only  -- Driver capabilities" Target="NVIDIA_DRIVER_CAPABILITIES" Default="" Mode="" Description="If using tag :nvidia  -- set to   all" Type="Variable" Display="always" Required="false" Mask="false">all</Config>
-  <Config Name="****Nvidia build only -- GPU ID" Target="NVIDIA_VISIBLE_DEVICES" Default="" Mode="" Description="add gpu id (from nvidia unraid plugin)" Type="Variable" Display="always" Required="false" Mask="false">GPU-</Config>
+  <Config Name="****Nvidia build only -- GPU ID" Target="NVIDIA_VISIBLE_DEVICES" Default="" Mode="" Description="add gpu id (from nvidia unraid plugin)" Type="Variable" Display="always" Required="false" Mask="false">GPU-df56ba01-099d-6486-864f-aa6b2f786669</Config>
   <Config Name="MYSQL_DATABASE" Target="MYSQL_DATABASE" Default="" Mode="" Description="MYSQL_DATABASE NAME" Type="Variable" Display="advanced" Required="false" Mask="false">shinobipro</Config>
   <Config Name="MYSQL_HOST" Target="MYSQL_HOST" Default="" Mode="" Description="MYSQL_HOST leave as localhost for container built in mariadb" Type="Variable" Display="advanced" Required="false" Mask="false">localhost</Config>
   <Config Name="MYSQL_PORT" Target="MYSQL_PORT" Default="" Mode="" Description="MYSQL_PORT  standard port 3306" Type="Variable" Display="advanced" Required="false" Mask="false">3306</Config>
@@ -218,9 +223,6 @@ To use your Nvidia GPU for encoding&#xD;
   <Config Name="MYSQL_USER" Target="MYSQL_USER" Default="" Mode="" Description="MYSQL_USER" Type="Variable" Display="advanced" Required="false" Mask="false">shinobipro</Config>
   <Config Name="MYSQL_PASSWORD" Target="MYSQL_PASSWORD" Default="" Mode="" Description="MYSQL_PASSWORD default none for internal mariadb" Type="Variable" Display="advanced" Required="false" Mask="false">shinobipro</Config>
   <Config Name="Temporary Streams" Target="/dev/shm/streams" Default="" Mode="rw" Description="Temporary Streams" Type="Path" Display="advanced" Required="false" Mask="false">/dev/shm/shinobi</Config>
-  <Config Name="appdata location" Target="/config" Default="/mnt/cache/appdata/shinobipro" Mode="rw" Description="/config" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/cache/appdata/shinobipro</Config>
-  <Config Name="maria db database location" Target="/var/lib/mysql" Default="" Mode="rw" Description="/var/lib/mysql" Type="Path" Display="advanced" Required="true" Mask="false">/mnt/cache/appdata/shinobipro/database</Config>
-  <Config Name="customautoload modules" Target="/opt/shinobi/libs/customAutoLoad" Default="" Mode="rw" Description="Container Path: /opt/shinobi/libs/customAutoLoad" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/cache/appdata/shinobipro/customautoload</Config>
   <Config Name="TIMEZONE" Target="/usr/share/zoneinfo/" Default="" Mode="ro" Description="Container Path: /usr/share/zoneinfo/" Type="Path" Display="advanced" Required="false" Mask="false">/usr/share/zoneinfo/</Config>
   <Config Name="LOCAL TIME" Target="/etc/localtime" Default="" Mode="ro" Description="Container Path: /etc/localtime" Type="Path" Display="advanced" Required="false" Mask="false">/etc/localtime</Config>
 </Container>

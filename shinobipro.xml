@@ -51,7 +51,7 @@ To use your Nvidia GPU for encoding&#xD;
 5. Set  template field   Nvidia build only -- GPU ID:                       to your GPU id from the nvida unraid plugin&#xD;</Overview>
   <Category>HomeAutomation: MediaApp:Video MediaServer:Video</Category>
   <WebUI>http://[IP]:[PORT:8080]</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/hussainalhaddad/docker-templates/master/filerun/shinobipro.xml</TemplateURL>
+  <TemplateURL>https://raw.githubusercontent.com/moosedookie/docker-templates/master/shinobipro.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/moosedookie/docker-templates/master/img/shinobipro.png</Icon>
   <ExtraParams>--runtime=nvidia</ExtraParams>
   <PostArgs/>

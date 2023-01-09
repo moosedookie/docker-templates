@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Container version="2">
+	<Name>readarr</Name>
+	<Repository>lscr.io/linuxserver/readarr:develop</Repository>
+	<Registry>https://github.com/orgs/linuxserver/packages/container/package/readarr</Registry>
+	<Network>bridge</Network>
+	<MyIP/>
+	<Shell>sh</Shell>
+	<Privileged>true</Privileged>
+	<Support>https://github.com/Readarr/Readarr/issues</Support>
+	<Project>https://github.com/Readarr/Readarr</Project>
+	<Overview>Readarr is an ebook and audiobook collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new books from your favorite authors and will grab, sort, and rename them. Note that only one type of a given book is supported. If you want both an audiobook and ebook of a given book you will need multiple instances.</Overview>
+	<Category>MediaApp:Books</Category>
+	<WebUI>http://[IP]:[PORT:8787]</WebUI>
+	<TemplateURL>https://raw.githubusercontent.com/moosedookie/docker-templates/master/readarr.xml</TemplateURL>
+	<Icon>https://raw.githubusercontent.com/moosedookie/docker-templates/master/img/readarr.png</Icon>
+	<ExtraParams/>
+	<PostArgs/>
+	<CPUset/>
+	<DonateText/>
+	<DonateLink/>
+	<Labels/>
+	<Requires/>
+	<Config Name="PORT" Target="8787" Default="8787" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">8787</Config>
+	<Config Name="CONFIG DIR" Target="/config" Default="/mnt/cache/appdata/readarr" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/cache/appdata/readarr</Config>
+	<Config Name="BACKUPS" Target="/Backups" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/Backups/manual-appbak/readarr</Config>
+	<Config Name="UMASK" Target="UMASK" Default="022" Mode="" Description="" Type="Variable" Display="advanced" Required="true" Mask="false">022</Config>
+	<Config Name="PUID" Target="PUID" Default="99" Mode="" Description="" Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
+	<Config Name="PGID" Target="PGID" Default="100" Mode="" Description="" Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
+</Container>
